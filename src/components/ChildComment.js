@@ -5,14 +5,12 @@ import moment from "moment";
 import { AiOutlineLike, AiFillLike } from "react-icons/ai";
 
 import colors from "../shared/colors";
-import ChildCommentInput from "../elements/ChildCommentInput";
 import {
   AddChildDB,
   DelChildDB,
   EditChildDB,
 } from "../redux/actions/childComment";
 import { AddLikeChild } from "../redux/actions/multiLike";
-import CommentNick from "../elements/CommentNick";
 import CommentContent from "../elements/CommentContent";
 import CommentDate from "../elements/CommentDate";
 import Nickname from "./Nickname";

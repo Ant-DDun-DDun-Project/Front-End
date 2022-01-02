@@ -109,14 +109,14 @@ const Multi = props => {
       {viewStatus === false ? (
         <QuestionWarpper>
           <ViewWarpper>
-            <ViewBtn onClick={viewSlide}>
+            <ViewBtn data-testid="slideView" onClick={viewSlide}>
               <img
                 className="view"
                 src={require("../images/slideViewSelected.png").default}
                 alt=""
               />
             </ViewBtn>
-            <ViewBtn onClick={viewList}>
+            <ViewBtn data-testid="listView" onClick={viewList}>
               <img
                 className="view"
                 src={require("../images/listView.png").default}

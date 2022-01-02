@@ -3,18 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { history } from "../redux/configureStore";
 import styled from "styled-components";
 import { FiArrowLeft } from "react-icons/fi";
-import { Menu, MenuItem, MenuButton } from "@szhsin/react-menu";
-import "@szhsin/react-menu/dist/index.css";
-import "@szhsin/react-menu/dist/transitions/slide.css";
-import MaterialIcon from "material-icons-react";
 
 import colors from "../shared/colors";
 import MultiComment from "../components/MultiComment";
-import MultiUnvoted from "../components/MultiUnvoted";
 import MultiVoted from "../components/MultiVoted";
 import LoadingBubble from "../elements/LoadingBubble";
 import { mobile } from "../shared/style";
-import { ClosePostDB, DeletePostDB } from "../redux/actions/multiCard";
 import { DetailDB } from "../redux/actions/multiDetail";
 import { SetParams } from "../redux/reducers/paramsSlice";
 import MultiMenu from "../elements/MultiMenu";

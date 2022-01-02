@@ -31,6 +31,7 @@ const MultiUnvoted = props => {
     multiList.voteCntD +
     multiList.voteCntE;
 
+  //좋아요 기능 뷰에서 +1은 state로 변경
   const addLike = () => {
     if (!userNickname) {
       window.alert("로그인 후 이용가능합니다");

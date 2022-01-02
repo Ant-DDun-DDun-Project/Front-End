@@ -44,6 +44,7 @@ const CommentInput = props => {
         <Warpper>
           {userNickname ? (
             <TextArea
+              data-testid="commentInput"
               ref={inputRef}
               onChange={changeComment}
               placeholder="내용을 입력해주세요"

@@ -13,33 +13,23 @@ const AnswerList = props => {
   const userNickname = localStorage.getItem("nickname");
   const { DetailVoteDone } = useSelector(state => state.multiDetail);
   const render = props.render;
-
   const [color, setColor] = useState("");
   const [select, setSelect] = useState("");
 
-  // const selected = e => {
-  //   const checkSelect = t => [...t.parentElement.children].filter(e => e !== t);
-  //   checkSelect(e.target).map(x => {
-  //     const newClass = String(x.classList[0] + " " + x.classList[1]);
-  //     if (x.classList[2] === "on") {
-  //       x.setAttribute("class", newClass);
-  //     }
-  //   });
-  //   e.target.classList.add("on");
-  // };
+  //투표 완료 통신 확인 후 페이지 리로드
+  useEffect(() => {
+    if (DetailVoteDone === true) {
+      window.location.reload(`/multi/${multiId}`);
+    }
+    return;
+  }, [DetailVoteDone, multiId]);
 
-  // const selectAnswer = e => {
-  //   const color = e.target.attributes.color.value;
-  //   setColor(color);
-  //   selected(e);
-  //   setSelect(e.target.id);
-  //   console.log("e", color);
-  // };
-
+  //투표 항목 선택하기
   const selectAnswer = e => {
     setSelect(e.target.id);
   };
 
+  //투표 항목 선택 후 완료하기
   const selectComplete = () => {
     if (!userNickname) {
       window.alert("로그인 후 이용가능합니다");
@@ -52,14 +42,6 @@ const AnswerList = props => {
       return;
     }
   };
-
-  useEffect(() => {
-    if (DetailVoteDone === true) {
-      // window.alert("ok");
-      window.location.reload(`/multi/${multiId}`);
-    }
-    return;
-  }, [DetailVoteDone, multiId]);
 
   return (
     <Container>

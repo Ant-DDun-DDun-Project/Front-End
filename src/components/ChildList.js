@@ -12,8 +12,6 @@ const ChildList = props => {
   const filterList = childList.filter(p => {
     return parentComment == p.parentComment;
   });
-  // console.log("childList", childList);
-  // console.log("filterList", filterList);
 
   return (
     <>
