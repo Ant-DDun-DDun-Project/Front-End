@@ -13,14 +13,23 @@ const AnswerList = props => {
   const userNickname = localStorage.getItem("nickname");
   const { DetailVoteDone } = useSelector(state => state.multiDetail);
   const render = props.render;
-
   const [color, setColor] = useState("");
   const [select, setSelect] = useState("");
 
+  //투표 완료 통신 확인 후 페이지 리로드
+  useEffect(() => {
+    if (DetailVoteDone === true) {
+      window.location.reload(`/multi/${multiId}`);
+    }
+    return;
+  }, [DetailVoteDone, multiId]);
+
+  //투표 항목 선택하기
   const selectAnswer = e => {
     setSelect(e.target.id);
   };
 
+  //투표 항목 선택 후 완료하기
   const selectComplete = () => {
     if (!userNickname) {
       window.alert("로그인 후 이용가능합니다");
@@ -33,14 +42,6 @@ const AnswerList = props => {
       return;
     }
   };
-
-  useEffect(() => {
-    if (DetailVoteDone === true) {
-      // window.alert("ok");
-      window.location.reload(`/multi/${multiId}`);
-    }
-    return;
-  }, [DetailVoteDone, multiId]);
 
   return (
     <Container>
