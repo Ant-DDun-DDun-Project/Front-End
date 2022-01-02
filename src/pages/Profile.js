@@ -37,7 +37,6 @@ const Profile = props => {
   const { profileNick, getProfileNickLoading } = useSelector(
     state => state.user,
   );
-  console.log(nickname);
   const [clicked, setClicked] = useState("posts");
   const [nicknameClick, setNicknameClick] = useState(false);
   const [nickInput, setNickInput] = useState(profileNick);
@@ -126,6 +125,7 @@ const Profile = props => {
                   right: "-30px",
                   position: "absolute",
                 }}
+                data-testid="nickEditBtn"
               />
             </>
           ) : (

@@ -30,6 +30,7 @@ const CommentInput = props => {
     } else {
       dispatch(AddCommentDB({ multiId, data: { comment } }));
       inputReset();
+      setComment("");
     }
   };
 

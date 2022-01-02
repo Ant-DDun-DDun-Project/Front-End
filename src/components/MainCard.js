@@ -140,6 +140,10 @@ const Subject = styled.p`
   -webkit-box-orient: vertical;
   box-sizing: border-box;
   margin: 0;
+
+  @media screen and (max-width: ${mobile}) {
+    height: 54px;
+  }
 `;
 
 const Content = styled.p`

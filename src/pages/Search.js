@@ -34,11 +34,15 @@ const Search = ({ location }) => {
   return (
     <Container>
       {!loadDone && <LoadingBubble />}
-      <SearchResultText>
-        '<span className="resultText">{searchValue}</span>' 검색한 결과입니다. (
-        {searchList.length})
-      </SearchResultText>
-      <MainPagination items={searchList} />
+      {searchList && (
+        <>
+          <SearchResultText>
+            '<span className="resultText">{searchValue}</span>' 검색한
+            결과입니다. ({searchList.length})
+          </SearchResultText>
+          <MainPagination items={searchList} />
+        </>
+      )}
     </Container>
   );
 };

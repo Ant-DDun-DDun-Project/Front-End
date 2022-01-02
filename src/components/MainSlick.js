@@ -174,6 +174,10 @@ const Title = styled.div`
     font-size: 28px;
     font-weight: bold;
     color: ${blue};
+
+    @media screen and (max-width: ${mobile}) {
+      font-size: 22px;
+    }
   }
 
   .hot {

@@ -1,11 +1,13 @@
 describe("회원가입 페이지 테스트", () => {
   beforeEach(() => {
-    cy.visit("/signup");
+    cy.visit("/");
+    cy.contains("로그인")
+      .click()
+      .location("pathname")
+      .should("equal", "/login");
   });
 
   it("로그인페이지에서 회원가입 버튼 클릭", () => {
-    cy.visit("/login");
-
     cy.contains("회원가입")
       .click()
       .location("pathname")
@@ -13,6 +15,10 @@ describe("회원가입 페이지 테스트", () => {
   });
 
   it("회원가입 페이지 각 인풋 입력 후 아이디 중복 문구 체크", () => {
+    cy.contains("회원가입")
+      .click()
+      .location("pathname")
+      .should("equal", "/signup");
     cy.get('[data-testid="idInput"]')
       .type("asd123")
       .should("have.value", "asd123");

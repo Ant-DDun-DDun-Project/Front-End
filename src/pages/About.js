@@ -1,7 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 
-import { darkGray, blue } from "../shared/style";
+import {
+  blue,
+  red,
+  mobile,
+  tablet,
+  gray5,
+  grayMultiply,
+  darkGray,
+} from "../shared/style";
 
 const About = () => {
   return (
@@ -37,11 +45,16 @@ const About = () => {
 
 const Container = styled.div`
   width: 67%;
-  min-height: 927px;
+  /* min-height: 927px; */
+  min-height: 100vh;
   margin: 0 auto;
   padding: 96px 0 0;
   line-height: 30px;
   box-sizing: border-box;
+
+  @media screen and (max-width: ${mobile}) {
+    width: 90%;
+  }
 `;
 
 const Subject = styled.div`
