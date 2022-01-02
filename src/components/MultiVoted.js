@@ -16,7 +16,6 @@ const MultiVoted = props => {
   const dispatch = useDispatch();
   const dataList = useSelector(state => state.multiDetail.multiDetail);
   const multiList = dataList.multi;
-  // const DataList = props.dataList.multi;
   const multiId = props.multiId;
   const [likes, setLikes] = useState(multiList.likeCnt);
   const [likeState, setLikeState] = useState(
@@ -36,6 +35,7 @@ const MultiVoted = props => {
   const PerD = (multiList.voteCntD / TotalCnt) * 100;
   const PerE = (multiList.voteCntE / TotalCnt) * 100;
 
+  //투표 항목별 %당 프로그레스바 길이 구현
   const [perA, setPerA] = useState(0);
   setTimeout(() => {
     if (isNaN(PerA)) {
@@ -81,6 +81,7 @@ const MultiVoted = props => {
     }
   }, 50);
 
+  //좋아요 기능 뷰에서 +1은 state로 변경
   const addLike = () => {
     if (multiList.liked === null) {
       dispatch(AddLikeDB(multiId));

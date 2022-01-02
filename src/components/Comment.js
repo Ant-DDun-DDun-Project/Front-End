@@ -6,11 +6,9 @@ import { AiOutlineLike, AiFillLike } from "react-icons/ai";
 
 import colors from "../shared/colors";
 import ChildList from "./ChildList";
-import ChildCommentInput from "../elements/ChildCommentInput";
 import { EditCommentDB, DelCommentDB } from "../redux/actions/comment";
 import { AddChildDB } from "../redux/actions/childComment";
 import { AddLikeComment } from "../redux/actions/multiLike";
-import CommentNick from "../elements/CommentNick";
 import CommentContent from "../elements/CommentContent";
 import CommentDate from "../elements/CommentDate";
 import Nickname from "./Nickname";

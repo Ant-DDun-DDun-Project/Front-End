@@ -2,8 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import styled from "styled-components";
-import { FiThumbsUp } from "react-icons/fi";
-import { FiMessageSquare } from "react-icons/fi";
+import { FiThumbsUp, FiMessageSquare } from "react-icons/fi";
 
 import colors from "../shared/colors";
 import { DetailDB } from "../redux/actions/multiDetail";
@@ -11,8 +10,8 @@ import Nickname from "./Nickname";
 
 const MultiCard = props => {
   const userNickname = localStorage.getItem("nickname");
-
   const dispatch = useDispatch();
+  const history = useHistory();
   const {
     multiId,
     title,
@@ -24,7 +23,8 @@ const MultiCard = props => {
     likeCnt,
     commentCnt,
   } = props;
-  const history = useHistory();
+
+  //상세보기 페이지로 이동
   const goToDetail = () => {
     if (!userNickname) {
       window.alert("로그인 후 이용가능합니다");
@@ -34,6 +34,7 @@ const MultiCard = props => {
       history.push(`/multi/${multiId}`);
     }
   };
+
   return (
     <Container>
       <Card>

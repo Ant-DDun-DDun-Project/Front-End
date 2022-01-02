@@ -33,11 +33,13 @@ const MultiCard = props => {
   const [likes, setLikes] = useState(likeCnt);
   const [likeState, setLikeState] = useState(liked === null ? false : true);
 
+  //상세보기 페이지로 이동
   const goToDetail = () => {
     dispatch(DetailDB(multiId));
     history.push(`/multi/${multiId}`);
   };
 
+  //상세보기 페이지 내 댓글로 이동
   const goToComment = () => {
     dispatch(DetailDB(multiId));
     history.push({
@@ -46,6 +48,7 @@ const MultiCard = props => {
     });
   };
 
+  //좋아요 기능
   const addLike = () => {
     if (!userNickname) {
       window.alert("로그인 후 이용가능합니다");

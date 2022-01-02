@@ -49,69 +49,6 @@ const MultiSlick = props => {
     ],
   };
 
-  // function NextArrow(props) {
-  //   const { className, style, onClick } = props;
-  //   return (
-  //     <div
-  //       className={className}
-  //       style={{
-  //         ...style,
-  //         width: "50px",
-  //         height: "50px",
-  //         right: "-25px",
-  //         zIndex: "1000",
-  //       }}
-  //       onClick={onClick}
-  //     >
-  //       <img
-  //         src={require("../images/arrowRed.svg").default}
-  //         alt="arrowNext"
-  //         style={{
-  //           position: "absolute",
-  //           width: "12.25px",
-  //           height: "28px",
-  //           border: "50%",
-  //           right: "-25px",
-  //         }}
-  //       />
-  //     </div>
-  //   );
-  // }
-  // //이전으로 넘어가기 버튼
-  // function PrevArrow(props) {
-  //   const { className, style, onClick } = props;
-  //   return (
-  //     <div
-  //       className={className}
-  //       style={{
-  //         ...style,
-  //         width: "50px",
-  //         height: "50px",
-  //         right: "0px",
-  //         zIndex: "1000",
-  //       }}
-  //       onClick={onClick}
-  //     >
-  //       <img
-  //         src={require("../images/arrowLRed.svg").default}
-  //         alt="arrowNext"
-  //         style={{
-  //           position: "absolute",
-  //           width: "12.25px",
-  //           height: "28px",
-  //           left: "-25px",
-  //           top: "0px",
-  //           border: null,
-  //         }}
-  //       />
-  //     </div>
-  //   );
-  // }
-  // const onCheck = e => {
-  //   console.log("eeee", e);
-  // };
-  // console.log("checker", checkRef);
-
   return (
     <Container>
       <SliderWarpper>
