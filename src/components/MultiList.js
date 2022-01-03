@@ -12,10 +12,8 @@ import { AddLikeDB } from "../redux/actions/multiLike";
 
 const MultiList = props => {
   const userNickname = localStorage.getItem("nickname");
-  // const multiDetail = useSelector(state => state.multiDetail.multiDetail);
-  // const dataList = multiDetail.multi && multiDetail;
-
   const dispatch = useDispatch();
+  const history = useHistory();
   const {
     multiId,
     title,
@@ -36,13 +34,14 @@ const MultiList = props => {
     setLikes(likeCnt);
   }, [likeCnt]);
 
-  const history = useHistory();
+  //상세페이지 이동
   const goToDetail = () => {
     window.scroll(0, 0);
     dispatch(DetailDB(multiId));
     history.push(`/multi/${multiId}`);
   };
 
+  //댓글 클릭시 상세페이지 이동
   const goToComment = () => {
     dispatch(DetailDB(multiId));
     history.push({
@@ -51,6 +50,7 @@ const MultiList = props => {
     });
   };
 
+  //좋아요 기능
   const addLike = () => {
     if (!userNickname) {
       window.alert("로그인 후 이용가능합니다");
