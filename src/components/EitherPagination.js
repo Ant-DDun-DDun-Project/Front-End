@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import ReactPaginate from "react-paginate";
 
 import EitherListCard from "./EitherListCard";
@@ -83,7 +84,8 @@ const EitherPagination = ({ items, itemsPerPage = 5 }) => {
       <ReactPaginate
         nextLabel="다음 >"
         onPageChange={handlePageClick}
-        pageRangeDisplayed={5}
+        pageRangeDisplayed={3}
+        marginPagesDisplayed={2}
         pageCount={pageCount}
         previousLabel="< 이전"
         pageClassName="page-item"

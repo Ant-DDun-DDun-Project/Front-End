@@ -1,6 +1,16 @@
 describe("메인 페이지 테스트", () => {
   beforeEach(() => {
     cy.visit("/");
+    cy.contains("로그인")
+      .click()
+      .location("pathname")
+      .should("equal", "/login");
+    cy.get(".idInput").type("asd123").should("have.value", "asd123");
+    cy.get(".pwInput").type("asdasd123!").should("have.value", "asdasd123!");
+    cy.get('[data-testid="loginButton"]')
+      .click()
+      .location("pathname")
+      .should("equal", "/");
   });
 
   it("찬반 질문 작성하기 클릭 시, 작성하기 페이지로 이동한다", () => {

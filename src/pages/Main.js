@@ -138,9 +138,6 @@ const Container = styled.div`
   padding-bottom: 40px;
   margin: auto;
   user-select: none;
-  @media screen and (max-width: ${mobile}) {
-    padding-bottom: 60px;
-  }
 
   @media screen and (max-width: 1540px) {
     top: 20px;
@@ -150,6 +147,7 @@ const Container = styled.div`
   }
 
   @media screen and (max-width: ${mobile}) {
+    padding-bottom: 60px;
     width: 90%;
   }
 `;
@@ -335,7 +333,7 @@ const Counts = styled.div`
     content: "";
     width: 1px;
     opacity: 0.7;
-    height: 100%;
+    height: 50px;
     background-color: ${gray4};
   }
 

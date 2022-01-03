@@ -77,7 +77,7 @@ const Header = () => {
 
   return (
     <Container ref={scrollRef}>
-      <Top>
+      <Top topOnScreen={onScreen}>
         <Logo
           height="26px"
           fill="white"
@@ -249,10 +249,14 @@ const Container = styled.div`
 const Top = styled.div`
   display: flex;
   width: 100%;
-  height: 56px;
+  height: ${props => (props.topOnScreen ? "56px" : "110px")};
   background-color: #00397c;
   align-items: center;
   justify-content: center;
+
+  @media screen and (max-width: ${mobile}) {
+    height: ${props => (props.topOnScreen ? "56px" : "150px")};
+  }
 `;
 
 const BottomWrapper = styled.div`
@@ -265,7 +269,7 @@ const BottomWrapper = styled.div`
   border-bottom: 1px solid ${red};
   box-sizing: border-box;
   z-index: 99999;
-  transition: all 150ms cubic-bezier(0.19, 0.855, 0.265, 0.985);
+  transition: all 550ms cubic-bezier(0.19, 0.855, 0.265, 0.985);
 
   @media screen and (max-width: ${mobile}) {
     flex-direction: column;

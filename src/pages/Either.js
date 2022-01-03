@@ -37,7 +37,6 @@ const Either = props => {
   const PostingList = eitherPosting.either;
   const PostCompleteList = eitherPostComplete.either;
 
-  const [select, setSelect] = useState("checkEither");
   //보여주기 상태 (초기값 전체보기)
   const [status, setStatus] = useState("post");
   //보여주기 형식 (초기값 카드형)
@@ -79,7 +78,7 @@ const Either = props => {
     } else {
       history.push({
         pathname: "/write",
-        state: { select: select },
+        state: { select: "checkEither" },
       });
     }
   };

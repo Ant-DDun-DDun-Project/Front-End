@@ -5,8 +5,6 @@ import {
   checkNickDup,
   getProfileNick,
   login,
-  // loginCheck,
-  // logout,
   signup,
   updateNick,
 } from "../actions/user";
@@ -18,12 +16,6 @@ export const initialState = {
   loginLoading: false, // 로그인 시도 중
   loginDone: false,
   loginError: null,
-  // loginCheckLoading: false, // 로그인체크 시도 중
-  // loginCheckDone: false,
-  // loginCheckError: null,
-  // logoutLoading: false, // 로그아웃 시도 중
-  // logoutDone: false,
-  // logoutError: null,
   signupLoading: false, // 회원가입 시도 중
   signupDone: false,
   signupError: null,
@@ -45,7 +37,7 @@ export const initialState = {
   getProfileNickDone: false,
   getProfileNickError: null,
 };
-// toolkit 사용방법
+
 const userSlice = createSlice({
   name: "user",
   initialState,
@@ -92,40 +84,6 @@ const userSlice = createSlice({
         state.loginLoading = false;
         state.loginError = action.payload;
       })
-      // loginCheck
-      // .addCase(loginCheck.pending, state => {
-      //   state.loginCheckLoading = true;
-      //   state.loginCheckDone = false;
-      //   state.loginCheckError = null;
-      // })
-      // .addCase(loginCheck.fulfilled, (state, action) => {
-      //   state.loginCheckLoading = false;
-      //   state.userInfo.nickname =
-      //     action.payload.nickname === "GUEST"
-      //       ? "GUEST"
-      //       : action.payload.nickname;
-      //   state.userInfo.userId = action.payload.user || null;
-      //   state.loginCheckDone = true;
-      // })
-      // .addCase(loginCheck.rejected, (state, action) => {
-      //   state.loginCheckLoading = false;
-      //   state.loginCheckError = action.payload;
-      // })
-      // logout
-      // .addCase(logout.pending, state => {
-      //   state.logoutLoading = true;
-      //   state.logoutDone = false;
-      //   state.logoutError = null;
-      // })
-      // .addCase(logout.fulfilled, (state, action) => {
-      //   state.userInfo = { nickname: "GUEST", userId: "" };
-      //   state.logoutLoading = false;
-      //   state.logoutDone = true;
-      // })
-      // .addCase(logout.rejected, (state, action) => {
-      //   state.logoutLoading = false;
-      //   state.logoutError = action.payload;
-      // })
       // signup
       .addCase(signup.pending, state => {
         state.signupLoading = true;
@@ -154,7 +112,7 @@ const userSlice = createSlice({
       .addCase(checkIdDup.rejected, (state, action) => {
         state.checkIdDupLoading = false;
         state.checkIdDupError = action.payload;
-        state.checkIdDupResult = action.payload.success;
+        state.checkIdDupResult = action.payload?.success;
       })
       // checkNickDup
       .addCase(checkNickDup.pending, state => {
@@ -170,7 +128,7 @@ const userSlice = createSlice({
       .addCase(checkNickDup.rejected, (state, action) => {
         state.checkNickDupLoading = false;
         state.checkNickDupError = action.payload;
-        state.checkNickDupResult = action.payload.success;
+        state.checkNickDupResult = action.payload?.success;
       })
       // updateNick
       .addCase(updateNick.pending, state => {

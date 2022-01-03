@@ -89,7 +89,6 @@ export const updateNick = createAsyncThunk(
       const response = await api.patch("/profiles/nick", { nickname });
       return response.data;
     } catch (err) {
-      console.log(err);
       return rejectWithValue(err.response.data);
     }
   },

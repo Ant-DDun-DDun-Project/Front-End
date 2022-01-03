@@ -275,13 +275,6 @@ const Signup = () => {
     if (!pwEqualChecker()) return;
   }, [pwChecker, pwEqualChecker]);
 
-  console.log("회원갑에러");
-  console.log("id", idError);
-  console.log("nick", nickError);
-  console.log("pw", passwordError);
-  console.log("pwEqual", passwordEqual);
-  console.log("age", ageError);
-
   return (
     <>
       <Container>

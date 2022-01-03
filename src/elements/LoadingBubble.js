@@ -27,7 +27,7 @@ const StyledLoading = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 100vh;
+  height: 90vh;
   padding: 50px;
   border-radius: 20px;
   background-color: ${grayMultiply};
