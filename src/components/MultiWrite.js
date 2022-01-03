@@ -10,6 +10,7 @@ import colors from "../shared/colors";
 import { mobile } from "../shared/style";
 
 const MultiWrite = props => {
+  const dispatch = useDispatch();
   const editData = props.editData;
   const multiId = props.multiId;
   const isEdit = editData ? true : false;
@@ -47,7 +48,6 @@ const MultiWrite = props => {
   const [addAction, setAddAction] = useState(null);
   const [editAction, setEditAction] = useState(null);
 
-  const dispatch = useDispatch();
   const date = moment().format("YYYY-MM-DD HH:mm:ss");
   const editedDate = moment().format("YYYY-MM-DD HH:mm:ss");
   const titleRef = useRef();
@@ -58,6 +58,8 @@ const MultiWrite = props => {
   const contentDRef = useRef();
   const contentERef = useRef();
 
+  //수정하던 게시물의 경우, 해당 게시물 아이디 기억하도록 설정
+  //기억해둔 아이디의 게시물 위치로 목록 볼 수 있도록함
   useEffect(() => {
     if (isEdit) {
       dispatch(SetParams(multiId));
@@ -66,6 +68,7 @@ const MultiWrite = props => {
     }
   });
 
+  //작성 완료 통신 후 게시물 목록으로 이동
   useEffect(() => {
     if (addAction && AddPostDBDone) {
       window.alert("작성이 완료되었습니다.");
@@ -73,6 +76,7 @@ const MultiWrite = props => {
     }
   }, [AddPostDBDone, addAction]);
 
+  //수정 완료 통신 후 게시물 목록으로 이동
   useEffect(() => {
     if (editAction && EditPostDBDone) {
       window.alert("수정이 완료되었습니다.");
@@ -80,7 +84,9 @@ const MultiWrite = props => {
     }
   }, [EditPostDBDone, editAction]);
 
-  // post 작성하기
+  //post 작성하기
+  //투표 항목 1번부터 차례대로 입력되도록 설정
+  //투표 빈칸별로 if문 조건처리
   const addPost = () => {
     if (title === "") {
       window.alert("no title");
@@ -159,12 +165,11 @@ const MultiWrite = props => {
       );
       setAddAction(true);
     }
-    // window.alert("작성이 완료되었습니다.");
-    // AddPostDBDone === true &&
-    // history.replace("/multi");
   };
 
-  // post 수정하기
+  //post 수정하기
+  //투표 항목 1번부터 차례대로 입력되도록 설정
+  //투표 빈칸별로 if문 조건처리
   const eidtPost = () => {
     if (title === "") {
       window.alert("제목을 입력해주세요");
@@ -250,18 +255,19 @@ const MultiWrite = props => {
       );
       setEditAction(true);
     }
-    // window.alert("수정이 완료되었습니다.");
-    // history.push("/multi");
   };
 
+  //제목 입력
   const changeTitle = e => {
     setTitle(e.target.value.substr(0, 30));
   };
 
+  //내용 입력
   const changeDescription = e => {
     setDescription(e.target.value);
   };
 
+  //3번째 투표항목부터 입력창 on off
   const showInputC = () => {
     setHiddenInputC(true);
     hideBtnB();
@@ -295,6 +301,7 @@ const MultiWrite = props => {
     setContentE("");
   };
 
+  //선택지 추가제거 버튼 on off
   const showBtnB = () => {
     setHiddenBtnB(true);
   };
@@ -319,11 +326,13 @@ const MultiWrite = props => {
     setHiddenBtnD(false);
   };
 
+  //글 작성 취소
   const cancel = () => {
     dispatch(SetParams("all"));
     history.push("/multi");
   };
 
+  //투표항목 내용 입력
   const changeContentA = e => {
     setContentA(e.target.value.substr(0, 30));
   };
